@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lylo Candles</title>
+<style>
+:root {
+  --bg-white: #FFFFFF;
+  --bg-dark: #2E3036;
+  --border: #E3E3E3;
+  --text-dark: #1C1C1E;
+  --text-muted: #6B6E76;
+  --btn-dark: #1C1C1E;
+  --btn-hover: #111111;
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+body { background: var(--bg-white); color: var(--text-dark); }
+nav { padding:28px 8%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
+nav h1 { letter-spacing:3px; font-weight:600; }
+nav a { text-decoration:none; color: var(--text-muted); transition:0.2s; margin-left:25px; }
+nav a:hover { color: var(--text-dark); }
+
+.section { padding:80px 8%; }
+.section h2 { font-size:2.5rem; margin-bottom:40px; }
+
+.product-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:35px; }
+.card { padding:25px; border:1px solid var(--border); background: var(--bg-white); transition:0.2s; text-decoration:none; color: inherit; display:flex; flex-direction:column; justify-content:space-between; }
+.card:hover { transform: translateY(-6px); }
+.card h4 { margin-bottom:12px; font-size:1.3rem; }
+.card p { color: var(--text-muted); margin-bottom:12px; }
+.price { font-weight:600; margin-bottom:12px; }
+
+.btn { padding:12px 28px; background:var(--btn-dark); color:var(--bg-white); border:none; font-weight:600; cursor:pointer; transition:all 0.2s ease; box-shadow:0 4px 6px rgba(0,0,0,0.15); border-radius:6px; position:relative; overflow:hidden; display:inline-block; text-align:center; }
+.btn::after { content:""; position:absolute; width:100%; height:0%; left:0; bottom:0; background:rgba(255,255,255,0.1); transition: all 0.2s ease; border-radius:6px; }
+.btn:hover::after { height:100%; }
+.btn:hover { background: var(--btn-hover); transform: translateY(-3px) scale(1.04); box-shadow:0 6px 14px rgba(0,0,0,0.25); }
+
+footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top:1px solid var(--border); margin-top:50px; text-align:center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <h1>LYLO CANDLES</h1>
+  <div>
+    <a href="homepage.html">Home</a>
+    <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Our Candles</h2>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<footer>
+  © 2026 Lylo Candles. All rights reserved.
+</footer>
+
+<script>
+// === Product Data ===
+const products = [
+  { name: 'Midnight Ember', price: 38, desc: 'Smoked cedarwood with vanilla.', page: 'product-midnight-ember.html' },
+  { name: 'Cloud Linen', price: 36, desc: 'Crisp cotton with subtle musk.', page: 'product-cloud-linen.html' },
+  { name: 'Stone & Sage', price: 42, desc: 'Earthy sage with amber warmth.', page: 'product-stone-sage.html' },
+  { name: 'Velvet Rose', price: 40, desc: 'Romantic rose with patchouli.', page: 'product-velvet-rose.html' },
+  { name: 'Citrus Grove', price: 35, desc: 'Fresh orange and lemon zest.', page: 'product-citrus-grove.html' }
+];
+
+// === Render Product Cards ===
+const grid = document.getElementById('product-grid');
+products.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <h4>${p.name}</h4>
+    <p>${p.desc}</p>
+    <div class="price">$${p.price}</div>
+    <div>
+      <a href="${p.page}" class="btn">View</a>
+      <button class="btn" onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// === Cart System ===
+let cart = JSON.parse(localStorage.getItem('lyloCart')) || [];
+updateCartCount();
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  localStorage.setItem('lyloCart', JSON.stringify(cart));
+  updateCartCount();
+  alert(name + ' added to cart!');
+}
+
+function updateCartCount() {
+  document.querySelectorAll('#cart-count').forEach(span => span.textContent = cart.length);
+}
+</script>
+
+</body>
+</html>
