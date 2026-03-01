@@ -3,124 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout - Lylo Candles</title>
+<title>Lylo Candles - Checkout</title>
 <style>
 :root {
-  --bg-white: #fff;
+  --bg-white: #FFFFFF;
+  --bg-dark: #2E3036;
   --text-dark: #1C1C1E;
   --text-muted: #6B6E76;
   --btn-dark: #1C1C1E;
-  --btn-hover: #111;
+  --btn-hover: #111111;
+  --btn-disabled: #999999;
+  --accent: #ad9060ad;
 }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+body { background: var(--bg-white); color: var(--text-dark); text-align:center; }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg-white);
-  padding: 40px 8%;
-  color: var(--text-dark);
-}
+nav { padding:28px 8%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #E3E3E3; }
+nav h1 { letter-spacing:3px; font-weight:600; }
+nav a { text-decoration:none; color: var(--text-muted); transition:0.15s; margin-left:25px; }
+nav a:hover { color: var(--text-dark); }
 
-h1 {
-  margin-bottom: 30px;
-  text-align: center;
-}
+main { max-width:700px; margin:40px auto 80px auto; padding:0 20px; }
 
-.checkout-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-}
+#back-shop { margin-bottom:20px; display:inline-block; text-decoration:none; color:var(--btn-dark); font-weight:600; border:1px solid var(--btn-dark); padding:8px 16px; border-radius:6px; transition:all 0.2s; }
+#back-shop:hover { background: var(--btn-dark); color: var(--bg-white); transform: scale(1.05); }
 
-.total {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-top: 30px;
-  text-align: right;
-}
+h1 { margin-bottom:30px; font-size:2rem; }
 
-form {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
+#cart-container { background:#F5F0EC; border-radius:12px; padding:20px; display:flex; flex-direction:column; gap:15px; }
 
-input, textarea {
-  padding: 12px;
-  border: 1px solid #E3E3E3;
-  border-radius: 6px;
-  font-size: 1rem;
-}
+.cart-item { display:flex; justify-content:space-between; align-items:center; padding:10px 15px; border-radius:8px; background:#fff; box-shadow:0 5px 15px rgba(0,0,0,0.05); position:relative; transition: transform 0.2s; }
+.cart-item:hover { transform: translateY(-2px); }
 
-textarea {
-  resize: none;
-  min-height: 100px;
-}
+.cart-item img { width:50px; height:50px; object-fit:cover; border-radius:6px; margin-right:10px; }
 
-.btn {
-  padding: 14px;
-  background: var(--btn-dark);
-  color: white;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: 0.2s;
-}
+.cart-details { flex:1; display:flex; flex-direction:column; align-items:flex-start; text-align:left; }
 
-.btn:hover {
-  background: var(--btn-hover);
-  transform: translateY(-2px);
-}
+.cart-item h3 { font-size:1rem; font-weight:600; }
 
-footer {
-  padding: 50px 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  border-top: 1px solid #E3E3E3;
-  margin-top: 50px;
-  text-align: center;
-}
+.cart-item p { font-size:1rem; font-weight:500; margin:5px 0 0 0; }
+
+.qty-controls { display:flex; align-items:center; gap:5px; margin-top:5px; }
+.qty-controls button { padding:4px 8px; border:none; background: var(--accent); color:#fff; font-weight:600; border-radius:4px; cursor:pointer; transition:0.2s; }
+.qty-controls button:hover { background:#a07c50; }
+.qty-controls span { min-width:20px; display:inline-block; text-align:center; transition: all 0.3s ease; }
+
+.remove-btn { background:#e74c3c; border:none; color:#fff; padding:4px 8px; border-radius:4px; cursor:pointer; font-size:0.8rem; transition:0.2s; }
+.remove-btn:hover { background:#c0392b; }
+
+#total { font-weight:700; font-size:1.4rem; margin:20px 0; opacity:1; transition: opacity 0.3s; }
+
+#purchase-btn { padding:12px 28px; background:var(--btn-dark); color:var(--bg-white); border:none; font-weight:600; cursor:pointer; border-radius:6px; transition:all 0.2s; display:inline-block; margin-bottom:20px; position:relative; }
+#purchase-btn:hover { animation: pulse 0.5s; }
+#purchase-btn:disabled { background: var(--btn-disabled); cursor: not-allowed; }
+
+.spinner { border:3px solid #f3f3f3; border-top:3px solid var(--bg-white); border-radius:50%; width:16px; height:16px; animation: spin 0.8s linear infinite; display:inline-block; margin-left:10px; vertical-align:middle; }
+
+#paypal-button-container { display:flex; justify-content:center; margin-top:20px; }
+
+@keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.05);} 100%{transform:scale(1);} }
+@keyframes spin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+
+footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top:1px solid #E3E3E3; margin-top:50px; }
 </style>
 </head>
 <body>
 
-<h1>Checkout</h1>
+<nav>
+  <h1>LYLO CANDLES</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="request.html">Request</a>
+  </div>
+</nav>
 
-<script>
-    let totalPrice=1+1
-    print(totalPrice)
-</script>
-<div class="checkout-item">
-  <span>Vanilla Soy Candle</span>
-  <span>$12.00</span>
-</div>
-<div class="checkout-item">
-  <span>Strawberry Dream Candle</span>
-  <span>$14.00</span>
-</div>
-<div class="checkout-item">
-  <span>Cinnamon Spice Candle</span>
-  <span>$12.00</span>
-</div>
-<div class="total">Total: $38.00</div>
+<main>
+  <a id="back-shop" href="products.html">Back to Shop</a>
+  <h1>Your Cart</h1>
 
-<form>
-  <input type="text" placeholder="Full Name" required>
-  <input type="email" placeholder="Email Address" required>
-  <input type="text" placeholder="Shipping Address" required>
-  <textarea placeholder="Additional Notes (optional)"></textarea>
-  <button type="submit" class="btn">Place Order</button>
-</form>
+  <div id="cart-container">
+    <!-- Cart items will render here -->
+  </div>
+
+  <div id="total"></div>
+
+  <button id="purchase-btn" disabled>Process Payment</button>
+  <div id="paypal-button-container"></div>
+</main>
 
 <footer>
   © 2026 Lylo Candles. All rights reserved.
 </footer>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AeOPCFJ7CizEb34UzetT2IZW7FguEdeFmBuh0y_c4vKxK6Gredn-5dv3qlfks-i9Q8LNGZtT_hoyrMR8&currency=USD"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem('lyloCart')) || [];
+const cartContainer = document.getElementById('cart-container');
+const totalEl = document.getElementById('total');
+const purchaseBtn = document.getElementById('purchase-btn');
+const paypalContainer = document.getElementById('paypal-button-container');
+
+function saveCart(){ localStorage.setItem('lyloCart', JSON.stringify(cart)); }
+
+function renderCart() {
+  cartContainer.innerHTML = '';
+  if(cart.length === 0){
+    cartContainer.innerHTML = '<p style="color:#999;">Your cart is empty.</p>';
+    totalEl.innerText = '';
+    purchaseBtn.disabled = true;
+    paypalContainer.style.display = 'none';
+    return;
+  }
+
+  let total = 0;
+  cart.forEach((item,index)=>{
+    total += item.price * (item.qty||1);
+
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.img || 'images/HouseTexture.png'}" alt="${item.title}">
+      <div class="cart-details">
+        <h3>${item.title}</h3>
+        <div class="qty-controls">
+          <button class="minus">-</button>
+          <span>${item.qty||1}</span>
+          <button class="plus">+</button>
+        </div>
+        <p>$${(item.price*(item.qty||1)).toFixed(2)}</p>
+      </div>
+      <button class="remove-btn">Remove</button>
+    `;
+
+    const qtySpan = div.querySelector('span');
+
+    div.querySelector('.plus').addEventListener('click', ()=>{
+      item.qty = (item.qty||1)+1;
+      qtySpan.style.transform='scale(1.2)';
+      setTimeout(()=>{qtySpan.style.transform='scale(1)';},150);
+      saveCart(); renderCart();
+    });
+
+    div.querySelector('.minus').addEventListener('click', ()=>{
+      if((item.qty||1) > 1){ item.qty -=1; }
+      else{ cart.splice(index,1); }
+      saveCart(); renderCart();
+    });
+
+    div.querySelector('.remove-btn').addEventListener('click', ()=>{
+      cart.splice(index,1);
+      saveCart(); renderCart();
+    });
+
+    cartContainer.appendChild(div);
+  });
+
+  totalEl.style.opacity=0;
+  setTimeout(()=>{ totalEl.innerText='Total: $'+total.toFixed(2); totalEl.style.opacity=1; },150);
+  purchaseBtn.disabled = false;
+  renderPayPal(total);
+}
+
+function renderPayPal(total){
+  paypalContainer.innerHTML=''; paypalContainer.style.display='flex';
+  paypal.Buttons({
+    style:{layout:'vertical', color:'gold', shape:'rect', label:'pay'},
+    createOrder:(data,actions)=>actions.order.create({purchase_units:[{amount:{value:total.toFixed(2)}}]}),
+    onApprove:(data,actions)=>actions.order.capture().then(details=>{
+      confetti({particleCount:50,spread:100,origin:{y:0.6}});
+      alert(`Payment successful! Thank you, ${details.payer.name.given_name}`);
+      cart=[]; saveCart(); renderCart();
+    }),
+    onCancel:()=>alert('Payment canceled'),
+    onError:(err)=>{console.error(err); alert('Payment error');}
+  }).render('#paypal-button-container');
+}
+
+purchaseBtn.addEventListener('click', ()=>{
+  purchaseBtn.disabled=true;
+  purchaseBtn.innerHTML='Processing <span class="spinner"></span>';
+  paypalContainer.scrollIntoView({behavior:'smooth'});
+});
+
+renderCart();
+</script>
 
 </body>
 </html>

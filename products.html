@@ -17,14 +17,14 @@
 body { background: var(--bg-white); color: var(--text-dark); text-align:center; }
 nav { padding:28px 8%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #E3E3E3; }
 nav h1 { letter-spacing:3px; font-weight:600; }
-nav a { text-decoration:none; color: var(--text-muted); transition:0.3s; margin-left:25px; }
+nav a { text-decoration:none; color: var(--text-muted); transition:0.15s; margin-left:25px; }
 nav a:hover { color: var(--text-dark); }
 
 .collection { padding:80px 8%; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:50px; }
 
 .collection h2 { width:100%; text-align:left; margin-bottom:30px; font-size:2rem; font-weight:700; }
 
-.card { background: #fff; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.08); overflow:hidden; position:relative; transition: transform 0.3s, box-shadow 0.3s; }
+.card { background: #fff; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.08); overflow:hidden; position:relative; transition: transform 0.15s, box-shadow 0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.15); }
 
 .card img { width:100%; display:block; object-fit:cover; }
@@ -37,10 +37,7 @@ nav a:hover { color: var(--text-dark); }
 .tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
 .tags span { background: #F5F0EC; color: var(--btn-dark); padding:4px 10px; border-radius:20px; font-size:0.8rem; font-weight:500; }
 
-.btn { padding:12px 28px; background:var(--btn-dark); color:var(--bg-white); border:none; font-weight:600; cursor:pointer; transition:all 0.35s ease; border-radius:6px; position:relative; overflow:hidden; display:inline-block; }
-.btn::after { content:""; position:absolute; width:100%; height:0%; left:0; bottom:0; background:rgba(255,255,255,0.1); transition: all 0.35s ease; border-radius:6px; }
-.btn:hover::after { height:100%; }
-.btn:hover { background: var(--btn-hover); transform: translateY(-2px) scale(1.03); }
+.btn { padding:12px 28px; background:var(--btn-dark); color:var(--bg-white); border:none; font-weight:600; cursor:pointer; transition:all 0.15s ease; border-radius:6px; position:relative; overflow:hidden; display:inline-block; }
 
 footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top:1px solid #E3E3E3; margin-top:50px; }
 
@@ -54,10 +51,11 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
   <div>
     <a href="index.html">Home</a>
     <a href="request.html">Request</a>
-      <a href="checkout.html">Cart (<span id="cart-count">0</span>)</a>
+    <a href="checkout.html">Cart (<span id="cart-count">0</span>)</a>
   </div>
 </nav>
-<h2 style="width:100%; text-align:center; margin:50px 0 30px;">Candles</h2>
+
+<h1 style="width:100%; text-align:center; margin:50px 0 30px;">Candles</h1>
 
 <section class="collection">
   <div class="card">
@@ -67,7 +65,7 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
       <p class="price">$12.00</p>
       <p class="description">Hand-poured vanilla scented soy candle. Burns clean for up to 40 hours.</p>
       <div class="tags">
-         <span>Candle</span>
+        <span>Candle</span>
         <span>Soy Wax</span>
         <span>Handmade</span>
       </div>
@@ -76,13 +74,13 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
   </div>
 
   <div class="card">
-    <img src="images/candle2.jpg" alt="Lavender Candle">
+    <img src="images/candle2.jpg" alt="Strawberry Candle">
     <div class="card-content">
       <h3>Strawberry Dream Candle</h3>
-      <p class="price">$14.00</p>
-      <p class="description">Relaxing lavender aroma for calm and cozy nights. Hand-poured with love.</p>
+      <p class="price">$12.00</p>
+      <p class="description">Relaxing strawberry aroma for calm and cozy nights. Hand-poured with love.</p>
       <div class="tags">
-         <span>Candle</span>
+        <span>Candle</span>
         <span>Soy Wax</span>
         <span>Handmade</span>
       </div>
@@ -91,15 +89,16 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
   </div>
 
   <div class="card">
-    <img src="images/HouseTexture.png" alt="Cinnamon Spice Candle">
+    <img src="images/HouseTexture.png" alt="Brown Sugar Candle">
     <div class="card-content">
-      <h3>Cinnamon Spice Candle</h3>
+      <h3>Brown Sugar Candle</h3>
       <p class="price">$12.00</p>
-      <p class="description">Warm cinnamon spice scent, perfect for autumn vibes. Hand-poured soy candle.</p>
+      <p class="description">Warm brown sugar scent, perfect for autumn vibes. Hand-poured soy candle.</p>
       <div class="tags">
-         <span>Candle</span>
+        <span>Candle</span>
         <span>Soy Wax</span>
         <span>Handmade</span>
+        <span>Autumn</span>
       </div>
       <button class="btn">Add to Cart</button>
     </div>
@@ -123,7 +122,7 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
 
 </section>
 
-<h2>Wax Melts</h2>
+<h1>Wax Melts</h1>
 <section class="collection">
   <div class="card">
     <img src="images/wax1.jpg" alt="Vanilla Wax Melt">
@@ -141,7 +140,7 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
   </div>
 
   <div class="card">
-    <img src="images/wax2.jpg" alt="Stra">
+    <img src="images/wax2.jpg" alt="Strawberry Wax Melt">
     <div class="card-content">
       <h3>Strawberry Wax Melt</h3>
       <p class="price">$8.00</p>
@@ -155,12 +154,82 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
     </div>
   </div>
 
-  <!-- Add more wax melt cards here -->
+  <div class="card">
+    <img src="images/HouseTexture.png" alt="Coconut Wax Melt">
+    <div class="card-content">
+      <h3>Coconut Wax Melt</h3>
+      <p class="price">$8.00</p>
+      <p class="description">Tropical vibes</p>
+      <div class="tags">
+        <span>Wax Melt</span>
+        <span>Soy Wax</span>
+        <span>Handmade</span>
+        <span>Tropical</span>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/HouseTexture.png" alt="Lemon Wax Melt">
+    <div class="card-content">
+      <h3>Lemon Wax Melt</h3>
+      <p class="price">$8.00</p>
+      <p class="description">Lemon</p>
+      <div class="tags">
+        <span>Wax Melt</span>
+        <span>Soy Wax</span>
+        <span>Handmade</span>
+        <span>Summer</span>
+      </div>
+      <button class="btn">Add To Cart</button>
+    </div>
+  </div>
 </section>
 
 <footer>
   © 2026 Lylo Candles. All rights reserved.
 </footer>
+
+<!-- Confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem('lyloCart')) || [];
+const cartCount = document.getElementById('cart-count');
+
+// Update cart count on load
+cartCount.innerText = cart.reduce((sum,item)=>sum+item.qty,0);
+
+document.querySelectorAll('.btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.card');
+    const title = card.querySelector('h3').innerText;
+    const price = parseFloat(card.querySelector('.price').innerText.replace('$',''));
+
+    // Add to cart
+    const existingItem = cart.find(item => item.title === title);
+    if(existingItem){
+      existingItem.qty += 1;
+    } else {
+      cart.push({ title, price, qty: 1 });
+    }
+
+    // Save to localStorage
+    localStorage.setItem('lyloCart', JSON.stringify(cart));
+
+    // Update cart count
+    let totalQty = cart.reduce((sum,item)=>sum+item.qty,0);
+    cartCount.innerText = totalQty;
+
+    // Button animation
+    btn.style.transform = 'scale(0.9)';
+    setTimeout(() => btn.style.transform = 'scale(1)', 150);
+
+    // Confetti
+    confetti({ particleCount: 30, spread: 70, origin: { y: 0.6 } });
+  });
+});
+</script>
 
 </body>
 </html>
