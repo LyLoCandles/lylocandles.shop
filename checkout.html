@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Lylo Candles</title>
+<style>
+:root {
+  --bg-white: #fff;
+  --text-dark: #1C1C1E;
+  --text-muted: #6B6E76;
+  --btn-dark: #1C1C1E;
+  --btn-hover: #111;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-white);
+  padding: 40px 8%;
+  color: var(--text-dark);
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.total {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 30px;
+  text-align: right;
+}
+
+form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #E3E3E3;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.btn {
+  padding: 14px;
+  background: var(--btn-dark);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+footer {
+  padding: 50px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid #E3E3E3;
+  margin-top: 50px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Checkout</h1>
+
+<script>
+    let totalPrice=1+1
+    print(totalPrice)
+</script>
+<div class="checkout-item">
+  <span>Vanilla Soy Candle</span>
+  <span>$12.00</span>
+</div>
+<div class="checkout-item">
+  <span>Strawberry Dream Candle</span>
+  <span>$14.00</span>
+</div>
+<div class="checkout-item">
+  <span>Cinnamon Spice Candle</span>
+  <span>$12.00</span>
+</div>
+<div class="total">Total: $38.00</div>
+
+<form>
+  <input type="text" placeholder="Full Name" required>
+  <input type="email" placeholder="Email Address" required>
+  <input type="text" placeholder="Shipping Address" required>
+  <textarea placeholder="Additional Notes (optional)"></textarea>
+  <button type="submit" class="btn">Place Order</button>
+</form>
+
+<footer>
+  © 2026 Lylo Candles. All rights reserved.
+</footer>
+
+</body>
+</html>

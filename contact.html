@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Lylo Candles</title>
+
+<style>
+:root {
+  --bg-white: #fff;
+  --text-dark: #1C1C1E;
+  --text-muted: #6B6E76;
+  --btn-dark: #1C1C1E;
+  --btn-hover: #111;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+
+body { background: var(--bg-white); color: var(--text-dark); padding:40px 8%; }
+
+nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0; }
+nav h1 { letter-spacing:3px; font-weight:600; }
+nav a { text-decoration:none; color: var(--text-muted); margin-left:25px; transition:0.2s; }
+nav a:hover { color: var(--text-dark); }
+
+.contact-section { max-width:600px; margin:auto; padding-top:80px; }
+.contact-section h2 { font-size:2.5rem; margin-bottom:15px; text-align:center; }
+.contact-section p { color: var(--text-muted); margin-bottom:40px; text-align:center; }
+
+form { display:flex; flex-direction:column; gap:20px; }
+input, textarea { padding:12px; border:1px solid #E3E3E3; border-radius:6px; font-size:1rem; outline:none; }
+input:focus, textarea:focus { border-color: var(--text-dark); }
+textarea { min-height:120px; resize:none; }
+.btn { padding:14px; background: var(--btn-dark); color:white; border:none; border-radius:6px; font-weight:600; cursor:pointer; transition:0.2s; }
+.btn:hover { background: var(--btn-hover); transform:translateY(-2px); }
+
+footer { padding:50px 0; color: var(--text-muted); font-size:0.9rem; border-top:1px solid #E3E3E3; margin-top:80px; text-align:center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <h1>LYLO CANDLES</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="request.html">Request</a>
+  </div>
+</nav>
+
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <p>Have a question or just wanna say hi? Send us a message and we'll get back to you ASAP!</p>
+
+  <form action="https://formspree.io/f/xqedopyn" method="POST">
+    <input type="hidden" name="_subject" value="Lylo Candles Contact Form">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="email" name="Email" placeholder="Email Address" required>
+    <textarea name="Message" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Lylo Candles. All rights reserved.
+</footer>
+
+</body>
+</html>

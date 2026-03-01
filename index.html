@@ -29,7 +29,7 @@ nav a:hover { color: var(--text-dark); }
 .btn:hover::after { height:100%; }
 .btn:hover { background: var(--btn-hover); transform: translateY(-3px) scale(1.04); box-shadow:0 6px 14px rgba(0,0,0,0.25); }
 
-footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top:1px solid hsla(--bg-dark); margin-top:50px; }
+footer { padding:240px 20%; color: var(--text-muted); font-size:0.9rem; border-top:1px solid hsla(--bg-dark); margin-top:50px; }
 </style>
 </head>
 <body>
@@ -39,7 +39,6 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
   <div>
     <a href="request.html">Request</a>
     <a href="contact.html">Contact</a>
-    <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
   </div>
 </nav>
 
@@ -52,12 +51,6 @@ footer { padding:50px 8%; color: var(--text-muted); font-size:0.9rem; border-top
 <footer>
   © 2026 Lylo Candles. All rights reserved.
 </footer>
-
-<script>
-// Simple cart count
-let cart = JSON.parse(localStorage.getItem('lyloCart')) || [];
-document.getElementById('cart-count').textContent = cart.length;
-</script>
 
 </body>
 </html>

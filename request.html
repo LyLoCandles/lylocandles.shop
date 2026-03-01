@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Request - Lylo Candles</title>
+
+<style>
+:root {
+  --bg-white: #FFFFFF;
+  --text-dark: #1C1C1E;
+  --text-muted: #6B6E76;
+  --btn-dark: #1C1C1E;
+  --btn-hover: #111111;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body {
+  background: var(--bg-white);
+  color: var(--text-dark);
+}
+
+nav {
+  padding:28px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+nav h1 {
+  letter-spacing:3px;
+  font-weight:600;
+}
+
+nav a {
+  text-decoration:none;
+  color: var(--text-muted);
+  margin-left:25px;
+  transition:0.2s;
+}
+
+nav a:hover {
+  color: var(--text-dark);
+}
+
+.request-section {
+  padding:120px 8%;
+  max-width:700px;
+  margin:auto;
+}
+
+.request-section h2 {
+  font-size:2.8rem;
+  margin-bottom:15px;
+}
+
+.request-section p {
+  color: var(--text-muted);
+  margin-bottom:40px;
+}
+
+form {
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+input, textarea, select {
+  padding:15px;
+  border:1px solid #E3E3E3;
+  border-radius:6px;
+  font-size:1rem;
+  outline:none;
+  transition:0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--text-dark);
+}
+
+textarea {
+  resize:none;
+  min-height:120px;
+}
+
+.btn {
+  padding:14px;
+  background:var(--btn-dark);
+  color:white;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:6px;
+  transition:0.2s;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  transform:translateY(-2px);
+}
+
+footer {
+  padding:50px 8%;
+  color: var(--text-muted);
+  font-size:0.9rem;
+  border-top:1px solid #E3E3E3;
+  margin-top:80px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>LYLO CANDLES</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+  </div>
+</nav>
+
+<section class="request-section">
+  <h2>Create Your Custom Candle</h2>
+  <p>Tell us your vision. We’ll hand-pour something made just for you.</p>
+
+  <form action="https://formspree.io/f/mvzbnkzr" method="POST">
+
+    <!-- Custom email subject -->
+    <input type="hidden" name="_subject" value="New Custom Candle Request">
+
+    <input type="text" name="Name" placeholder="Your Name" required>
+
+    <input type="email" name="Email" placeholder="Email Address" required>
+
+    <select name="size" required>
+      <option value="">Choose Candle Size</option>
+      <option>7oz</option>
+      <option>12oz</option>
+      <option>16oz</option>
+    </select>
+
+    <input type="text" name="Scent" placeholder="Preferred Scent">
+
+    <textarea name="Message" placeholder="Describe your vision, colors, mood, occasion, etc..."></textarea>
+
+    <button type="submit" class="btn">Submit Request</button>
+    <input type="hidden" name="_redirect" value="https://lylocandles.shop/thankyou.html">
+  </form>
+</section>
+
+<footer>
+  © 2026 Lylo Candles. All rights reserved.
+</footer>
+
+</body>
+</html>
